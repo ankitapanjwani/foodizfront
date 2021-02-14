@@ -5,7 +5,8 @@ import Box from "@material-ui/core/Box";
 import './style.css';
 import foodData from "./../data/foodGetdata";
 import {Card,CardActionArea,CardContent,CardMedia,Typography} from '@material-ui/core';
-
+import StarRateIcon from '@material-ui/icons/StarRate';
+import Fade from '@material-ui/core/Fade';
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
   { width: 550, itemsToShow: 2 },
@@ -17,23 +18,44 @@ function Carousels() {
   const restaurants = foodData();
   const cardstyle = {
   
-      border: "2px solid grey",
+      border: "2px solid white",
       width: '345px',
       margin: "2%"
     
   };
   const mediastyle = {
-    height: 300,
+    height: 250,
     width: '100%'
   }
 const carddiv={
-  maxWidth: '100%'
+  maxWidth: '100%',
 }
+const rating={
   
+    marginTop: '5%',
+    width: '60px',
+    backgroundColor: '#48c479',
+    color: 'white'
+
+}
+const heading={
+  marginTop: '10%',
+  fontWeight: 700,
+  fontSize: "4rem",
+  textAlign: "center",
+  color: "#282c3f"
+
+}
+  const rate={
+    color: 'yellow',
+  
+  }
   return (
     <>
-      <h1 style={{ textAlign: "center" }}>Top Five Rated Restaurants...</h1>
+    <div > <Typography style={heading}>Foodizz's Five Star     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" style={rate} viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>								
+Rated Restaurants</Typography></div> 
       <div className="Appi">
+     
         <Carousel breakPoints={breakPoints}>
         
                 {
@@ -57,8 +79,12 @@ const carddiv={
                           component="p"
                         >
                           {rest.description}
-                          <p>{rest.price}</p>       
+                          <p>Rs.{rest.price} for Two</p>       
                           </Typography>
+
+                          <Typography>
+                        <p style={rating}><StarRateIcon/> 5.0</p>
+                        </Typography>
                       </CardContent>
                     </CardActionArea>
                   </Card>

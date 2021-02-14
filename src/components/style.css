@@ -1,5 +1,6 @@
   
 .Appi {
+  margin: 0;
     font-family: sans-serif;
     display: flex;
     align-items: center;

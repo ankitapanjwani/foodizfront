@@ -23,7 +23,8 @@ import Parallax from "./parallax";
 import Carousel from "./carousels";
 import TopRatedRests from './topratedrests';
 import foodData from "./../data/foodGetdata";
-import StarOutlineIcon from '@material-ui/icons/StarOutline';
+import SearchBar from "material-ui-search-bar";
+import StarRateIcon from '@material-ui/icons/StarRate';
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1
@@ -36,7 +37,7 @@ const useStyles = makeStyles(theme => ({
   },
   image: {
     width: "80%",
-    
+    paddingTop: '5%'
   },
   p: {
     fontSize: "1rem",
@@ -63,19 +64,18 @@ const useStyles = makeStyles(theme => ({
   search: {
     marginTop: "5vh",
     position: "relative",
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
+    // borderRadius: theme.shape.borderRadius,
+    backgroundColor: fade(theme.palette.common.black, 0.15),
     "&:hover": {
       backgroundColor: fade(theme.palette.common.black, 0.25)
     },
-    marginLeft: 0,
-    // width: "100%",
+  
     paddingLeft: "2%",
     paddingRight: "2%",
     [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(1),
-      width: "55vw",
-      height: "5vh"
+      // marginLeft: theme.spacing(1),
+      width: "100vh",
+      height: "7vh"
     }
   },
   searchIcon: {
@@ -98,25 +98,37 @@ const useStyles = makeStyles(theme => ({
   },
 
   foodsContainer: {
-    paddingTop: theme.spacing(3)
+    paddingTop: theme.spacing(3),
+    
   },
   cardtitle: {
     fontWeight: 700,
     fontSize: "4rem",
     textAlign: "center",
-    paddingBottom: theme.spacing,
+    
+    // paddingBottom: theme.spacing,
     color: "#282c3f"
   },
   card: {
     border: "2px solid white",
     maxwidth: "100%"
   },
-  media: {
-    height: 300
+  restcontainer: {
+    marginTop: '5%'
   },
 
+  media: {
+    height: 200
+  },
+  searchbar:{
+    backgroundColor: fade(theme.palette.common.black, 0.15),
+    "&:hover": {
+      backgroundColor: fade(theme.palette.common.black, 0.25)
+    },
+     color: 'white'
+  },
   inputRoot: {
-    color: "white"
+    color: "black"
   },
   inputInput: {
     padding: theme.spacing(1, 0, 1, 0),
@@ -145,6 +157,7 @@ export default function SearchAppBar() {
             <Typography variant="h1">FOODIZ</Typography>
             <Typography variant="h4">We Bring Joy to the Table</Typography>
           </div>
+          <SearchBar className={classes.searchbar} placeholder="Search for Restaurants or dishes.."/>
           {/* <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -160,6 +173,7 @@ export default function SearchAppBar() {
               fullWidth
             />
           </div> */}
+          
         </Box>
       </Box>
 
@@ -168,7 +182,8 @@ export default function SearchAppBar() {
           RESTAURANTS
         </Typography>
 
-        <Grid item container spacing={10} mt={10}>
+ 
+        <Grid item container spacing={10} mt={10} className={classes.restcontainer}>
           <Grid item container xs={12} sm={12} md={12} lg={12} spacing={2}>
           
               {restaurants.map(rest => (
@@ -195,11 +210,11 @@ export default function SearchAppBar() {
                         <Typography  
                         variant="body2"
                           color="textSecondary"
-                          component="h6">
+                          component="h3">
                         Rs. {rest.price} for Two
                         </Typography>
                         <Typography>
-                        <p className={classes.rating}><StarOutlineIcon/> 4.5</p>
+                        <p className={classes.rating}><StarRateIcon/> 4.5</p>
                         </Typography>
 
                        
