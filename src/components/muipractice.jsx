@@ -17,27 +17,33 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
-
+import FooterGrid from './footer';
 import "materialize-css/dist/css/materialize.min.css";
 import Parallax from "./parallax";
-
-// import Rating from '@material-ui/lab/Rating';
 import Carousel from "./carousels";
+import TopRatedRests from './topratedrests';
 import foodData from "./../data/foodGetdata";
-
+import StarOutlineIcon from '@material-ui/icons/StarOutline';
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1
   },
+  rating:{
+    marginTop: '5%',
+    width: '60px',
+    backgroundColor: '#48c479',
+    color: 'white'
+  },
   image: {
-    width: "100%",
-    color: "#F0FFF0"
+    width: "80%",
+    
   },
   p: {
     fontSize: "1rem",
     fontWeight: 100
   },
   hero: {
+    margin: 0,
     backgroundImage: `url('https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80')`,
     backgroundRepeat: "no-repeat",
     height: "60vh",
@@ -47,14 +53,12 @@ const useStyles = makeStyles(theme => ({
     position: "relative",
     display: "flex",
     flexDirection: "col",
-    //  justifyContent:"space-around",
+    
     width: "100%",
 
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
 
-    //   fontWeight: 300,
-    //   fontSize: "4rem",
   },
   search: {
     marginTop: "5vh",
@@ -104,7 +108,7 @@ const useStyles = makeStyles(theme => ({
     color: "#282c3f"
   },
   card: {
-    border: "2px solid grey",
+    border: "2px solid white",
     maxwidth: "100%"
   },
   media: {
@@ -141,7 +145,7 @@ export default function SearchAppBar() {
             <Typography variant="h1">FOODIZ</Typography>
             <Typography variant="h4">We Bring Joy to the Table</Typography>
           </div>
-          <div className={classes.search}>
+          {/* <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
@@ -155,20 +159,20 @@ export default function SearchAppBar() {
               inputProps={{ "aria-label": "search" }}
               fullWidth
             />
-          </div>
+          </div> */}
         </Box>
       </Box>
 
-      <Container maxWidth="lg" className={classes.foodsContainer}>
+       <Container maxWidth="lg" className={classes.foodsContainer}>
         <Typography className={classes.cardtitle} variant="h4">
           RESTAURANTS
         </Typography>
 
         <Grid item container spacing={10} mt={10}>
-          <Grid item container xs={12} sm={6} md={4} lg={12} spacing={2}>
-            {/* <Grid container spacing={2}> */}
+          <Grid item container xs={12} sm={12} md={12} lg={12} spacing={2}>
+          
               {restaurants.map(rest => (
-                <Grid item xs={12} sm={6} md={4} lg={4}>
+                <Grid item xs={12} sm={6} md={6} lg={4}>
                   <Card className={classes.card}>
                     <CardActionArea>
                       <CardMedia
@@ -176,7 +180,6 @@ export default function SearchAppBar() {
                         image={rest.imageUrl}
                         title=""
                       />
-
                       <CardContent>
                         <Typography gutterBottom variant="h5" component="h2">
                           {rest.title}
@@ -188,6 +191,18 @@ export default function SearchAppBar() {
                         >
                           {rest.description}
                         </Typography>
+
+                        <Typography  
+                        variant="body2"
+                          color="textSecondary"
+                          component="h6">
+                        Rs. {rest.price} for Two
+                        </Typography>
+                        <Typography>
+                        <p className={classes.rating}><StarOutlineIcon/> 4.5</p>
+                        </Typography>
+
+                       
                       </CardContent>
                     </CardActionArea>
 
@@ -195,12 +210,15 @@ export default function SearchAppBar() {
                   </Card>
                 </Grid>
               ))}
-            {/* </Grid> */}
           </Grid>
         </Grid>
-      </Container>
-      {/* <Parallax></Parallax> */}
-      {/*  <Carousel></Carousel> */}
+      </Container> 
+
+
+      <Parallax></Parallax>
+       <Carousel></Carousel>
+       <FooterGrid></FooterGrid>
+       {/* <TopRatedRests></TopRatedRests> */}
 
       {/* <RecipeReviewCard></RecipeReviewCard> */}
     </div>
