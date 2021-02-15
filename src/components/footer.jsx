@@ -6,6 +6,7 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import PinterestIcon from '@material-ui/icons/Pinterest';
+import  Container  from '@material-ui/core/Container';
 const useStyles = makeStyles((theme) => ({
   root: {
       
@@ -39,6 +40,7 @@ export default function FooterGrid() {
 
   return (
     <div className={classes.root}>
+    <Container>
       <Grid container spacing={3}>
         <Grid item xs={4} md={4} lg={4}>
             
@@ -121,8 +123,8 @@ export default function FooterGrid() {
         </Grid>
         <Grid item xs={4} md={4} lg={4}>
         <Paper className={classes.grid2}>
-          <h4>
-          <FacebookIcon />   
+          <h4 className="p-3">
+          <FacebookIcon/>   
             <PinterestIcon/>
             <InstagramIcon/>
             <TwitterIcon/>      
@@ -130,6 +132,7 @@ export default function FooterGrid() {
         </Paper>
         </Grid>
 </Grid>
+</Container>
      
     </div>
   );

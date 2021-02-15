@@ -5,39 +5,36 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import InputBase from "@material-ui/core/InputBase";
 import { fade, makeStyles } from "@material-ui/core/styles";
-import MenuIcon from "@material-ui/icons/Menu";
-import SearchIcon from "@material-ui/icons/Search";
 import { Button, Grid, Card, Link } from "@material-ui/core";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
-import RecipeReviewCard from "./../card";
 import Avatar from "@material-ui/core/Avatar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
-import FooterGrid from './footer';
+import FooterGrid from "./footer";
 import "materialize-css/dist/css/materialize.min.css";
 import Parallax from "./parallax";
 import Carousel from "./carousels";
-import TopRatedRests from './topratedrests';
+import TopRatedRests from "./topratedrests";
 import foodData from "./../data/foodGetdata";
 import SearchBar from "material-ui-search-bar";
-import StarRateIcon from '@material-ui/icons/StarRate';
+import StarRateIcon from "@material-ui/icons/StarRate";
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1
   },
-  rating:{
-    marginTop: '5%',
-    width: '60px',
-    backgroundColor: '#48c479',
-    color: 'white'
-  },
+  // rating:{
+  //   marginTop: '5%',
+  //   width: '60px',
+  //   backgroundColor: '#48c479',
+  //   color: 'white'
+  // },
   image: {
     width: "80%",
-    paddingTop: '5%'
+    paddingTop: "5%"
   },
   p: {
     fontSize: "1rem",
@@ -54,12 +51,11 @@ const useStyles = makeStyles(theme => ({
     position: "relative",
     display: "flex",
     flexDirection: "col",
-    
+
     width: "100%",
 
     alignItems: "center",
-    justifyContent: "center",
-
+    justifyContent: "center"
   },
   search: {
     marginTop: "5vh",
@@ -69,7 +65,7 @@ const useStyles = makeStyles(theme => ({
     "&:hover": {
       backgroundColor: fade(theme.palette.common.black, 0.25)
     },
-  
+
     paddingLeft: "2%",
     paddingRight: "2%",
     [theme.breakpoints.up("sm")]: {
@@ -98,35 +94,37 @@ const useStyles = makeStyles(theme => ({
   },
 
   foodsContainer: {
-    paddingTop: theme.spacing(3),
-    
+    paddingTop: theme.spacing(3)
   },
   cardtitle: {
     fontWeight: 700,
     fontSize: "4rem",
     textAlign: "center",
-    
+
     // paddingBottom: theme.spacing,
     color: "#282c3f"
   },
   card: {
     border: "2px solid white",
-    maxwidth: "100%"
+    maxwidth: "100%",
+   /*  "&$selected": {
+      backgroundColor: "white !important"
+    } */
   },
   restcontainer: {
-    marginTop: '5%'
+    marginTop: "5%"
   },
 
   media: {
     height: 200
   },
-  searchbar:{
-    backgroundColor: fade(theme.palette.common.black, 0.15),
-    "&:hover": {
-      backgroundColor: fade(theme.palette.common.black, 0.25)
-    },
-     color: 'white'
-  },
+  // searchbar:{
+  //   backgroundColor: fade(theme.palette.common.black, 0.15),
+  //   "&:hover": {
+  //     backgroundColor: fade(theme.palette.common.black, 0.25)
+  //   },
+  //    color: 'white'
+  // },
   inputRoot: {
     color: "black"
   },
@@ -145,10 +143,15 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+const handleId = rest => {
+  console.log(rest);
+};
+
 export default function SearchAppBar() {
   const classes = useStyles();
   const restaurants = foodData();
-  // console.log(food);
+  // console.log(restaurants);
+  // console.log(restaurants._id);
   return (
     <div>
       <Box className={classes.hero}>
@@ -157,7 +160,10 @@ export default function SearchAppBar() {
             <Typography variant="h1">FOODIZ</Typography>
             <Typography variant="h4">We Bring Joy to the Table</Typography>
           </div>
-          <SearchBar className={classes.searchbar} placeholder="Search for Restaurants or dishes.."/>
+          <SearchBar
+            className={classes.searchbar}
+            placeholder="Search for Restaurants or dishes.."
+          />
           {/* <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -173,67 +179,71 @@ export default function SearchAppBar() {
               fullWidth
             />
           </div> */}
-          
         </Box>
       </Box>
 
-       <Container maxWidth="lg" className={classes.foodsContainer}>
+      <Container maxWidth="lg" className={classes.foodsContainer}>
         <Typography className={classes.cardtitle} variant="h4">
           RESTAURANTS
         </Typography>
 
- 
-        <Grid item container spacing={10} mt={10} className={classes.restcontainer}>
+        <Grid
+          item
+          container
+          spacing={10}
+          mt={10}
+          className={classes.restcontainer}
+        >
           <Grid item container xs={12} sm={12} md={12} lg={12} spacing={2}>
-          
-              {restaurants.map(rest => (
-                <Grid item xs={12} sm={6} md={6} lg={4}>
-                  <Card className={classes.card}>
-                    <CardActionArea>
-                      <CardMedia
-                        className={classes.media}
-                        image={rest.imageUrl}
-                        title=""
-                      />
-                      <CardContent>
-                        <Typography gutterBottom variant="h5" component="h2">
-                          {rest.title}
-                        </Typography>
-                        <Typography
-                          variant="body2"
-                          color="textSecondary"
-                          component="p"
-                        >
-                          {rest.description}
-                        </Typography>
-
-                        <Typography  
+            {restaurants.map(rest => (
+              <Grid item xs={12} sm={6} md={6} lg={4}>
+                <Card className={classes.card}>
+                  <CardActionArea>
+                    <CardMedia
+                      className={classes.media}
+                      image={rest.imageUrl}
+                      title=""
+                      onClick={() => handleId(rest)}
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        {rest.title}
+                      </Typography>
+                      <Typography
                         variant="body2"
-                          color="textSecondary"
-                          component="h3">
+                        color="textSecondary"
+                        component="p"
+                      >
+                        {rest.description}
+                      </Typography>
+
+                      <Typography
+                        variant="body2"
+                        color="textSecondary"
+                        component="h3"
+                      >
                         Rs. {rest.price} for Two
-                        </Typography>
-                        <Typography>
-                        <p className={classes.rating}><StarRateIcon/> 4.5</p>
-                        </Typography>
+                      </Typography>
+                      <Typography>
+                        <p className={classes.rating}>
+                          <StarRateIcon /> 4.5
+                        </p>
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
 
-                       
-                      </CardContent>
-                    </CardActionArea>
-
-                    <CardActions></CardActions>
-                  </Card>
-                </Grid>
-              ))}
+                  <CardActions></CardActions>
+                </Card>
+              </Grid>
+            ))}
           </Grid>
         </Grid>
-      </Container> 
-
+      </Container>
 
       <Parallax></Parallax>
        <Carousel></Carousel>
-       <FooterGrid></FooterGrid>
-       {/* <TopRatedRests></TopRatedRests> */}
+      <FooterGrid></FooterGrid>
+      {/* <TopRatedRests></TopRatedRests> */}
 
       {/* <RecipeReviewCard></RecipeReviewCard> */}
     </div>
