@@ -149,3 +149,34 @@ const Carousel=() =>{
 
 
 export default Carousel;
+
+
+
+
+
+
+
+
+<Tabs
+orientation="vertical"
+  value={selectedTab}
+  onChange={handleChange}
+  classes={{
+    indicator: classes.indicator
+  }}
+>
+  <Tab
+    fullWidth
+    label="Past Orders"
+ 
+  />
+  <Tab
+    fullWidth
+    label="My Profile"
+  
+
+  />
+</Tabs>
+
+{selectedTab === 0 && <PastOrders />}
+{selectedTab === 1 && <MyProfile />}

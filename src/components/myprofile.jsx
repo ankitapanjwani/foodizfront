@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import { Route, Link } from "react-router-dom";
+import TextField from '@material-ui/core/TextField';
 const useStyles = makeStyles(theme => ({
   root: {
     //   margin: '2%',
@@ -18,7 +19,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: "left",
     border: "1px solid #171a29",
     color: "white",
-    height: "900px",
+    height: "auto",
     width: "",
     backgroundColor: "#171a29"
   },
@@ -29,7 +30,12 @@ const useStyles = makeStyles(theme => ({
       color: "lightblue",
       textDecoration: "none"
     }
-  }
+  },
+  formfields:{
+    color: 'white',
+    // backgroundColor: 'white'
+  },
+
 }));
 
 export default function MyProfile() {
@@ -40,13 +46,17 @@ export default function MyProfile() {
       <Container>
         <Grid container spacing={3}>
           <Grid item xs={6} lg={12} md={4}>
-           {/*  <Paper className={classes.paper}> */}
-              {/* <div className={classes.orders}>
-            <div><Link to="/pastorders">Past Orders</Link></div>
-            <div><Link to="/myprofile">My Profile</Link></div>
-          </div> */}
-              My Profile
-          {/*   </Paper> */}
+            <Paper className={classes.paper}>
+             
+              <Typography className={classes.formfields}>
+   First Name           <form noValidate autoComplete="off">
+    John Doe
+
+    <hr className={classes.formfields}/>
+    </form>   
+              </Typography>
+             
+            </Paper>
           </Grid>
         </Grid>
       </Container>
