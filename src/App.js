@@ -6,7 +6,7 @@ import VerticalTabs from './components/verticleTabs';
 function App() {
   return (
     <div className="App">
-        <SearchAppBar></SearchAppBar>
+        {/* <SearchAppBar></SearchAppBar> */}
 
         {/* <ProfileSection></ProfileSection> */}
         {/* <VerticalTabs></VerticalTabs> */}
