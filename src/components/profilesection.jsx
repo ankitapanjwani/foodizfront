@@ -9,24 +9,54 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import PastOrders from "./pastorders";
 import MyProfile from "./myprofile";
+import { shadows } from '@material-ui/system';
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+// import SvgIcon from "@material-ui/icons/ShoppingBasket";
+import PersonIcon from '@material-ui/icons/Person';
 const useStyles = makeStyles(theme => ({
   root: {
-      marginTop: '5%',
-    padding: "5%",
-    height: '100vh',
-    backgroundColor: "#171a29",
+      // marginTop: '5%',
+    padding: "2%",
+    height: 'auto',
+    backgroundColor: "#2c446e",
     flexGrow: 1
   },
   paper: {
     padding: theme.spacing(2),
     textAlign: "left",
   
-    color: "black",
-    height: '80vh',
+    color: "#dae2f0",
+    height: 'auto',
     // height: "auto",
     width: "auto",
-    backgroundColor: "#ed7e34"
+    backgroundColor: "#ffffff"
   },
+  tabs:{
+
+    marginTop: '6%',
+    paddingTop: '30%',
+    backgroundColor:"#d8dee8",
+    height:'90vh'
+  },
+  tabtext:{
+ 
+    fontSize: '20px',
+    color:'#2c446e',
+    textAlign: 'left'
+  
+  },
+  labelContainer: {
+    width: "auto",
+    padding: 2 
+  },
+  iconLabelWrapper: {
+    flexDirection: "row",
+    // padding: '20px'
+  },
+
+  tabposition:{
+    padding: '20%'
+  }
    
 }));
 
@@ -37,6 +67,8 @@ export default function ProfileSection() {
   const handleChange = (event, newValue) => {
     setSelectedTab(newValue);
   };
+
+
   return (
 
 
@@ -48,6 +80,7 @@ export default function ProfileSection() {
             <Paper className={classes.paper}>
             <Grid container spacing={3}>
               <Grid item xs={12} lg={4} md={12}>
+        
               <Tabs
         orientation="vertical"
         variant="scrollable"
@@ -56,11 +89,20 @@ export default function ProfileSection() {
         aria-label="Vertical tabs example"
         className={classes.tabs}
       >
-        <Tab label="My Profile"  />
-        <Tab label="Past Orders" />
+ 
+     <Tab className={classes.tabtext}  classes={{
+              wrapper: classes.iconLabelWrapper,
+              labelContainer: classes.labelContainer
+            }} icon={<PersonIcon/>} label="Profile"/>
+    
+        <Tab className={classes.tabtext}  classes={{
+              wrapper: classes.iconLabelWrapper,
+              labelContainer: classes.labelContainer
+            }} icon={<ShoppingBasketIcon/>} label="Past Orders"/>
+         
       
       </Tabs>
-
+  
 
               </Grid>
               <Grid item xs={12} lg={8} md={12}>

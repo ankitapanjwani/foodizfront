@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^12.6.3",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
+    "lodash": "^4.17.20",
     "material-ui-search-bar": "^1.0.0",
     "materialize-css": "^1.0.0-rc.2",
     "react": "^17.0.1",
@@ -43,5 +44,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@iconify-icons/mdi": "^1.1.11",
+    "@iconify/react": "^1.1.4"
   }
 }
