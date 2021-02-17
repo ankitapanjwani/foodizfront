@@ -13,6 +13,8 @@ const useStyles = makeStyles((theme) => ({
       padding: '1%',
       backgroundColor: '#171a29',
     flexGrow: 1,
+    bottom: 0,
+    marginTop: '20%'
   },
   paper: {
     padding: theme.spacing(2),

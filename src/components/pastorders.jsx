@@ -116,7 +116,7 @@ export default function PastOrders() {
   const restaurants = foodData();
   const length = restaurants.length;
   console.log(length);
-  const limit = 2;
+  let limit = 2;
 
   const [showMore, setShowMore] = useState(true);
   console.log("rest", restaurants);
@@ -133,6 +133,7 @@ export default function PastOrders() {
 
   const loadMore = () => {
     const newIndex = index + limit;
+    
     console.log("index", index);
     console.log("new indedx", newIndex);
     const newShowMore = newIndex <= length - 1;
@@ -140,7 +141,7 @@ export default function PastOrders() {
     const newList = _.concat(
       list,
       _(restaurants)
-        .slice(newIndex)
+        .slice(limit,newIndex)
         .take(limit)
         .value()
     );

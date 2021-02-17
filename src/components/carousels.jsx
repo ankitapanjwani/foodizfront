@@ -9,9 +9,9 @@ import StarRateIcon from '@material-ui/icons/StarRate';
 import Fade from '@material-ui/core/Fade';
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
-  { width: 550, itemsToShow: 2 },
-  { width: 768, itemsToShow: 3 },
-  { width: 1200, itemsToShow: 4 },
+  { width: 768, itemsToShow: 2 },
+  { width: 855, itemsToShow: 3 },
+  { width: 1200, itemsToShow: 5 },
 ];
 
 function Carousels() {
@@ -20,12 +20,15 @@ function Carousels() {
   
       border: "2px solid white",
       width: '345px',
-      margin: "2%"
+      marginTop: "10%",
+      marginBottom: "5%",
+      boxShadow: "0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)"
     
   };
   const mediastyle = {
     height: 250,
-    width: '100%'
+    width: '100%',
+    
   }
 const carddiv={
   maxWidth: '100%',
@@ -39,7 +42,7 @@ const rating={
 
 }
 const heading={
-  marginTop: '10%',
+  marginTop: '8%',
   fontWeight: 700,
   fontSize: "4rem",
   textAlign: "center",
@@ -54,7 +57,7 @@ const heading={
     <>
     <div > <Typography style={heading}>Foodizz's Five Star     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" style={rate} viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>								
 Rated Restaurants</Typography></div> 
-      <div className="Appi">
+      <div >
      
         <Carousel breakPoints={breakPoints}>
         
@@ -67,6 +70,7 @@ Rated Restaurants</Typography></div>
                         style={mediastyle}
                         image={rest.imageUrl}
                         title=""
+                        
                       />
 
                       <CardContent>
