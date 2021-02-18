@@ -13,8 +13,8 @@ function App() {
   return (
     <div className="App">
         {/* <LandingPage></LandingPage> */}
-       {/*  <AllRestaurants></AllRestaurants>  */}
-        {/* <ProfileSection></ProfileSection> */}  
+        <AllRestaurants></AllRestaurants> 
+        {/* <ProfileSection></ProfileSection>   */}
         {/* <NavAppBar></NavAppBar> */}
        {/*  <RecipeReviewCard></RecipeReviewCard> */}
          {/* <FooterGrid fixed></FooterGrid> */}
