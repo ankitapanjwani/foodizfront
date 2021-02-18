@@ -14,13 +14,14 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
-import FooterGrid from "./footer";
+import FooterGrid from "../components/Footer";
 import "materialize-css/dist/css/materialize.min.css";
-import Parallax from "./parallax";
-import Carousel from "./carousels";
-import TopRatedRests from "./topratedrests";
-import foodData from "./../data/foodGetdata";
+import Parallax from "../components/Parallax";
+import Carousel from "../components/Carousels";
+import foodData from "../data/Restaurants";
 import StarRateIcon from "@material-ui/icons/StarRate";
+import PersonIcon from '@material-ui/icons/Person';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1
@@ -42,21 +43,12 @@ const useStyles = makeStyles(theme => ({
   hero: {
     margin: 0,
     // backgroundImage: `url('https://images.unsplash.com/photo-1494859802809-d069c3b71a8a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')`,
-    backgroundImage: `url(${process.env.PUBLIC_URL+`/foodimage.jfif`} )`,
-    backgroundRepeat: "no-repeat",
-    height: "60vh",
-    flexWrap: "wrap",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    position: "relative",
     display: "flex",
     flexDirection: "row",
     justifyContent: 'flex-end',
-
-    width: "100%",
-
     alignItems: "center",
     // justifyContent: "center"
+  
   },
   foodtext:{
     float: 'right'
@@ -87,7 +79,41 @@ const useStyles = makeStyles(theme => ({
       display: "block"
     }
   },
-
+  SignupLogin:{
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-end',
+    backgroundRepeat: "no-repeat",
+    height: "60vh",
+    width: "100%",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    position: "relative",
+    backgroundImage: `url(${process.env.PUBLIC_URL+`/foodimage.jfif`} )`,
+   
+  
+  },
+  quote:{
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop:"200px",
+    marginRight:"500px"
+  },
+  logintext:{
+    float: 'right',
+    marginTop: 0,
+    fontSize: '20px',
+    padding: '20px',
+  },
+  spaceText:{
+    display:"flex",
+    flexDirection:"row",
+    justifyContent:"space-between"
+  },
+  signUpText:{
+    paddingRight:"20px"
+  },
+  
   foodsContainer: {
     paddingTop: theme.spacing(3)
   },
@@ -148,25 +174,46 @@ const handleId = rest => {
   console.log(rest);
 };
 
-export default function SearchAppBar() {
+export default function LandingPage() {
   const classes = useStyles();
   const restaurants = foodData();
   // console.log(restaurants);
   // console.log(restaurants._id);
   return (
     <div>
-        <Box className={classes.hero}>
-          <Box className={classes.image}>
-          <div>
-            Sign
-          </div>
-            <div className={classes.foodtext}>
-              <Typography variant="h1" className={classes.foodizTitle}>FOODIZ</Typography>
+      <Grid item container xs={12} sm={12} md={12} lg={12}>
+      <Grid item xs={12} sm={12} md={12} lg={12}>
+      <div className={classes.SignupLogin}>
+           <div className={classes.logintext}>
+                  {/* <div className={classes.spaceText}>SignUp</div>
+                  <div className={classes.spaceText}>Login</div> */}
+                  <div className={classes.spaceText}>
+                  <p className={classes.signUpText}> <PersonIcon/> Signup </p>
+                    <p><ExitToAppIcon /> Login</p>
+                  </div>
+                  {/* <div>  Login</div>  */}
+            </div> 
+            <div className={classes.quote}>
+
+            <Typography variant="h1">FOODIZ</Typography>
               <Typography variant="h4">We Bring Joy to the Table</Typography>
+            </div>
+           
+       </div> 
+       </Grid>
+       </Grid>
+      
+         
+       {/* <Box className={classes.hero}>
+        
+          <Box className={classes.image}>
+         
+          <div className={classes.foodtext}>
+              
             </div>
     
           </Box>
-        </Box>
+        </Box> */}
 
       <Container maxWidth="lg" className={classes.foodsContainer}>
   
@@ -238,40 +285,4 @@ export default function SearchAppBar() {
   );
 }
 
-// <Fab color="primary" aria-label="add">
-// //                 <AddIcon />
-// //             </Fab>
-// //             <Fab color="secondary" aria-label="edit">
-// //                 <EditIcon />
-// //             </Fab>
-// //             <Fab variant="extended">
-// //                 <NavigationIcon className={classes.extendedIcon} />
-// //                 Navigate
-// //             </Fab>
-// //             <Fab disabled aria-label="like">
-//                 <FavoriteIcon />
-//  </Fab>
-{
-  /* <AppBar position="static" className={classes.color}>
-        <Toolbar>
-                    <IconButton
-                        edge="start"
-                        className={classes.menuButton}
-                        color="inherit"
-                        aria-label="open drawer"
-                    >
-                           <Avatar alt="Remy Sharp" src="https://media.gettyimages.com/videos/cheerful-young-businesswoman-headshot-portrait-smiling-at-camera-video-id1156656651?s=640x640" />
-                    </IconButton>
-                            <Typography className={classes.title} variant="h6" >
-                           
-                            </Typography>
-          
-            <Button color="inherit">Login</Button>
-            <Button color="inherit">Sign Up</Button>
-       
-        </Toolbar>
-      </AppBar> */
-}
-{
-  /* IMAGE */
-}
+

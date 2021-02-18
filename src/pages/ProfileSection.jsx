@@ -7,8 +7,8 @@ import Container from "@material-ui/core/Container";
 import { Route, Link } from "react-router-dom";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import PastOrders from "./pastorders";
-import MyProfile from "./myprofile";
+import PastOrders from "../components/PastOrders";
+import MyProfile from "../components/MyProfile";
 import { shadows } from '@material-ui/system';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 // import SvgIcon from "@material-ui/icons/ShoppingBasket";
@@ -105,7 +105,7 @@ export default function ProfileSection() {
   
 
               </Grid>
-              <Grid item xs={12} lg={8} md={12}>
+              <Grid item sm={12} xs={12} lg={8} md={12}>
         
               {selectedTab === 0 && <MyProfile />}
               {selectedTab === 1 && <PastOrders />}   

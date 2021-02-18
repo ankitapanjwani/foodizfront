@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 0,
     textAlign: 'left',
     color: 'white',
-    height: '150px',
+    height: '250px',
     backgroundColor: '#171a29',
   },
   hr:{
@@ -115,12 +115,12 @@ export default function FooterGrid() {
         <hr className={classes.hr}/>
         <Grid item xs={4} md={4} lg={4}>
         <Paper className={classes.grid2}>
-            <div><h4>Ｆｏｏｄｉｚｚ <img width="80" height="80" src="https://img.pngio.com/sandwich-bread-food-free-vector-graphic-on-pixabay-food-animated-png-781_720.png"/></h4></div>
+            <div><h4>FOODIZ<img width="80" height="80" src="https://img.pngio.com/sandwich-bread-food-free-vector-graphic-on-pixabay-food-animated-png-781_720.png"/></h4></div>
         </Paper>
         </Grid>
         <Grid item xs={4} md={4} lg={4}>
         <Paper className={classes.grid2}>
-            <div><h4>&copy; 2021 Ｆｏｏｄｉｚｚ</h4></div>
+            <div><h4>&copy; 2021 FOODIZ</h4></div>
         </Paper>
         </Grid>
         <Grid item xs={4} md={4} lg={4}>

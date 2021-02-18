@@ -7,8 +7,8 @@ import Container from "@material-ui/core/Container";
 import { Route, Link } from "react-router-dom";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import MyProfile from "./myprofile";
-import foodData from "./../data/foodGetdata";
+import MyProfile from "./MyProfile";
+import foodData from "../data/Restaurants";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
@@ -156,7 +156,7 @@ export default function PastOrders() {
     <div className={classes.root}>
       <Container>
         <Grid container spacing={3}>
-          <Grid item xs={6} lg={12} md={4}>
+          <Grid item sm={12} xs={12} lg={12} md={12}>
             <Paper className={classes.paper}>
               <Typography className={classes.pastordertext}>
                 Past Orders

@@ -1,7 +1,7 @@
 import React from 'react';
-import NavAppBar from './navbar';
-import FooterGrid from './footer';
-import foodData from "./../data/foodGetdata";
+import NavAppBar from '../components/Navbar';
+import FooterGrid from '../components/Footer';
+import foodData from "../data/Restaurants";
 
 import Typography from "@material-ui/core/Typography";
 import {makeStyles } from "@material-ui/core/styles";

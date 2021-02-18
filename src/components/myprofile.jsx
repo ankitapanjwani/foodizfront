@@ -8,7 +8,7 @@ import { Route, Link } from "react-router-dom";
 import TextField from '@material-ui/core/TextField';
 import { shadows } from '@material-ui/system';
 import  Avatar  from '@material-ui/core/Avatar';
-import UsersData from './../data/users';
+import UsersData from '../data/users';
 import Button from '@material-ui/core/Button';
 import EditIcon from '@material-ui/icons/Edit';
 import Dialog from '@material-ui/core/Dialog';
@@ -16,6 +16,16 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import { useMediaQuery } from 'react-responsive';
+ 
+
+
+
+
+
+
+
+
 const useStyles = makeStyles(theme => ({
   root: {
     //   margin: '2%',
@@ -75,6 +85,24 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function MyProfile() {
+
+
+  const isAvatarSmallDevices = useMediaQuery({
+    query: '(min-device-width: 500px)'
+  })
+
+
+
+
+
+
+
+
+
+
+
+
+
   const classes = useStyles();
   const users = UsersData();
   // console.log(users[0].firstName);
@@ -92,11 +120,12 @@ export default function MyProfile() {
     <div className={classes.root}>
       <Container>
         <Grid container spacing={3}>
-          <Grid item xs={6} lg={12} md={4}>
+          <Grid item sm={12} xs={12} lg={12} md={4}>
             <Paper className={classes.paper}>
-            {/* <img  width="200" height="200"  class="masthead-avatar" src="" alt="" /> */}
+           
             <div className={classes.editicon}>
-            <Avatar alt="Remy Sharp" className={classes.avatarImage} src="https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png" />
+         {isAvatarSmallDevices && <Avatar alt="Remy Sharp" variant="MuiAvatar-rounded" className={classes.avatarImage} src="https://i.kinja-img.com/gawker-media/image/upload/t_original/ijsi5fzb1nbkbhxa2gc1.png" /> } 
+
             <EditIcon className={classes.edit} onClick={handleClickOpen}/>
             
             </div>

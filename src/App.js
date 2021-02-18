@@ -1,27 +1,24 @@
-import SearchAppBar from './components/muipractice';
+import LandingPage from './pages/LandingPage';
 import {Route} from 'react-router-dom'
-import ProfileSection from './components/profilesection';
-import PastOrders from './components/pastorders';
-import VerticalTabs from './components/verticleTabs';
-import MediaControlCard from './components/orders';
-import NavAppBar from './components/navbar';
-import FooterGrid from './components/footer';
+import ProfileSection from './pages/ProfileSection';
+import PastOrders from './components/PastOrders';
+import NavAppBar from './components/Navbar';
+import FooterGrid from './components/Footer';
 import  Container  from '@material-ui/core/Container';
 import  Typography  from '@material-ui/core/Typography';
-import AllRestaurants from './components/allRestaurants';
+import AllRestaurants from './pages/AllRestaurants';
+import RecipeReviewCard from './card';
+
 function App() {
   return (
     <div className="App">
-        {/* <SearchAppBar></SearchAppBar> */}
-
-        {/* <ProfileSection></ProfileSection> */}
-        {/* <VerticalTabs></VerticalTabs> */}
-        {/* <Route path="/pastorders" component={PastOrders}></Route> */}
-        {/* <MediaControlCard></MediaControlCard> */}
+        {/* <LandingPage></LandingPage> */}
+       {/*  <AllRestaurants></AllRestaurants>  */}
+        {/* <ProfileSection></ProfileSection> */}  
         {/* <NavAppBar></NavAppBar> */}
-{/*      
-        <FooterGrid fixed></FooterGrid> */}
-        <AllRestaurants></AllRestaurants> 
+       {/*  <RecipeReviewCard></RecipeReviewCard> */}
+         {/* <FooterGrid fixed></FooterGrid> */}
+        
     </div>
   );
 }
